@@ -19,12 +19,13 @@ const userResolvers = {
   },
   Mutation: {
     adicionaUser: async (root, { user }, { dataSources }) => dataSources.usersAPI.adicionaUser(user),
-    atualizaUser: async (root, novosDados, { dataSources }) => {
-      console.log(novosDados)
-      return dataSources.usersAPI.atualizaUser(novosDados)
-    },
+    atualizaUser: async (root, novosDados, { dataSources }) => dataSources.usersAPI.atualizaUser(novosDados),
     deletaUser: async (root, { id }, { dataSources }) => dataSources.usersAPI.deletaUser(id)
+  } ,
+  User: {
+    matriculas: (parent, _, { dataSources }) => dataSources.matriculasAPI.getMatriculasPorEstudante(parent.id)
   } 
+
 }
 
 module.exports = userResolvers
