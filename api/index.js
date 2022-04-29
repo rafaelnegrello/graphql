@@ -11,6 +11,7 @@ const resolvers = [userResolvers, turmaResolvers, matriculaResolvers]
 
 const dbConfig = {
   client: 'sqlite3',
+  debug: true,
   useNullAsDefault: true,
   connection: {
     filename: path.resolve(__dirname, './data/database.db')
